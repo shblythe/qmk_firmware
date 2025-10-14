@@ -8,6 +8,14 @@
 // Make Left Control + Escape
 #define M_LCESC LCTL_T(KC_ESC)
 
+// TODO
+// - Fn keys?
+// - Shifted NUBS/NUHS on layer 2
+// - Ditch kanata for this keyboard
+//   - Reimplement HRM here
+//   - Add tab layer (momentary)
+//   - Add gaming layer (replaces layer 0 when active, removes HRM)
+
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_split_3x6_3(
