@@ -29,6 +29,8 @@ enum {
 // Tab hold switches to layer 4, tap is KC_TAB
 #define M_TAB LT(L_TAB, KC_TAB)
 
+#define LS_NUBS LSFT(KC_NUBS)
+
 // TODO
 // - Fn keys?
 // - Shifted NUBS/NUHS on layer 2
@@ -67,7 +69,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [L_SYM] = LAYOUT_split_3x6_3(
         KC_TAB,  KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC,                       KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_BSPC,
         M_LCESC, KC_LSFT, XXXXXXX, XXXXXXX, KC_LCTL, KC_NUBS,                       KC_MINS,  KC_EQL, KC_LBRC, KC_RBRC, KC_NUHS,  KC_GRV,
-        KC_LSFT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                       KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE, KC_TILD,
+        KC_LSFT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, LS_NUBS,                       KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE, KC_TILD,
                                             KC_LGUI, MO(L_RGB),   KC_SPC,      KC_ENT,  _______, KC_RALT
     ),
 
