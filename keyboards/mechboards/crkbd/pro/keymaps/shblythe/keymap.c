@@ -33,7 +33,7 @@ enum {
 
 // TODO
 // - Fn keys?
-// - Shifted NUBS/NUHS on layer 2
+// D Shifted NUBS/NUHS on layer 2
 // D Ditch kanata for this keyboard
 //   D Reimplement HRM here
 //   D Add tab layer (momentary)
@@ -102,6 +102,20 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
 // clang-format on
 
 #ifdef OLED_ENABLE
+static void render_logo(void) {
+    static const char PROGMEM qmk_logo[] = {
+        0x80, 0x81, 0x82, 0x83, 0x84,
+        0xA0, 0xA1, 0xA2, 0xA3, 0xA4,
+        0xC0, 0xC1, 0xC2, 0xC3, 0xC4,
+        0x85, 0x86, 0x87, 0x88, 0x89,
+        0xA5, 0xA6, 0xA7, 0xA8, 0xA9,
+        0xC5, 0xC6, 0xC7, 0xC8, 0xC9,
+        0x00
+    };
+
+    oled_write_P(qmk_logo, false);
+}
+
 bool oled_task_user(void) {
     oled_clear();
     oled_set_cursor(0, 0);
@@ -131,6 +145,8 @@ bool oled_task_user(void) {
             // Or use the write_ln shortcut over adding '\n' to the end of your string
             oled_write_ln_P(PSTR("Undefined"), false);
     }
+    oled_write_P(PSTR("\n\n\n\n\n\n\n\n"), false);
+    render_logo();
     return false;
 }
 #endif
