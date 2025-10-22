@@ -43,10 +43,10 @@ enum {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // Standard QWERTY layout with Home Row Mods
     [L_BASE] = LAYOUT_split_3x6_3(
-        M_TAB,   KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                          KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,    KC_BSPC,
+        M_TAB,   KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                          KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,    LS_NUBS,
         M_LCESC, M_LS_A,  KC_S,    M_LW_D,  M_LC_F,  KC_G,                          KC_H,    M_RC_J,  M_RW_K,  KC_L,   M_RS_SC, KC_QUOT,
         KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                          KC_N,    KC_M,    KC_COMM, KC_DOT, KC_SLSH, KC_ENT,
-                                        KC_LGUI, MO(L_NUM),  KC_SPC,      KC_SPC,   MO(L_SYM), KC_RALT
+                                        KC_LALT, MO(L_NUM),  KC_SPC,      KC_SPC,   MO(L_SYM), KC_BSPC
     ),
 
     // Gaming layer, mostly like standard, but no HRM
@@ -54,23 +54,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         M_TAB,   KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                          KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,    KC_BSPC,
         KC_ESC,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                          KC_H,    KC_J,    KC_K,    KC_L,   KC_SCLN, KC_QUOT,
         KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                          KC_N,    KC_M,    KC_COMM, KC_DOT, KC_SLSH, KC_ENT,
-                                        KC_LGUI, MO(L_NUM),  KC_SPC,      KC_SPC,   MO(L_SYM), KC_RALT
+                                        KC_LALT, MO(L_NUM),  KC_SPC,      KC_SPC,   MO(L_SYM), KC_BSPC
     ),
 
     // Number layer
     [L_NUM] = LAYOUT_split_3x6_3(
-        KC_TAB,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                          KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC,
+        KC_TAB,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                          KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    _______,
         M_LCESC, KC_LSFT, XXXXXXX, KC_LGUI, KC_LCTL, XXXXXXX,                       XXXXXXX, KC_RCTL, KC_RGUI, XXXXXXX, KC_RSFT, XXXXXXX,
         KC_LSFT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                       XXXXXXX, XXXXXXX, KC_COMM, KC_DOT,  XXXXXXX, _______,
-                                            KC_LGUI, _______, KC_SPC,      _______,  MO(L_RGB),   KC_RALT
+                                            _______, _______, KC_SPC,      _______,  MO(L_RGB),   _______
     ),
 
     // Symbol layer
     [L_SYM] = LAYOUT_split_3x6_3(
-        KC_TAB,  KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC,                       KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_BSPC,
+        KC_TAB,  KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC,                       KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, _______,
         M_LCESC, KC_LSFT, XXXXXXX, XXXXXXX, KC_LCTL, KC_NUBS,                       KC_MINS,  KC_EQL, KC_LBRC, KC_RBRC, KC_NUHS,  KC_GRV,
         KC_LSFT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, LS_NUBS,                       KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE, KC_TILD,
-                                            KC_LGUI, MO(L_RGB), KC_SPC,    _______, _______, KC_RALT
+                                            _______, MO(L_RGB), KC_SPC,    _______, _______, _______
     ),
 
     // RGB and system control
@@ -78,7 +78,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
         RM_TOGG, RM_HUEU, RM_SATU, RM_VALU, XXXXXXX, XXXXXXX,                       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
         RM_NEXT, RM_HUED, RM_SATD, RM_VALD, XXXXXXX, XXXXXXX,                       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-                                            KC_LGUI, _______, KC_SPC,      _______, _______, KC_RALT
+                                            _______, _______, KC_SPC,      _______, _______, _______
     ),
 
     // Tab layer
@@ -86,7 +86,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, DF(L_BASE), XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                    KC_A,    KC_HOME, KC_END,  KC_PGUP, KC_PGDN, XXXXXXX,
         XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, DF(L_GAME),                 KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXXXXXX, XXXXXXX,
         XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
-                                            KC_LGUI, _______, KC_SPC,      _______, _______, KC_RALT
+                                            _______, _______, KC_SPC,      _______, _______, _______
     )
 };
 
