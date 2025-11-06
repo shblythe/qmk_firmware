@@ -85,7 +85,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // Tab layer
     [L_TAB] = LAYOUT_split_3x6_3(
         _______, DF(L_BASE), XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                    KC_A,    KC_HOME, KC_END,  KC_PGUP, KC_PGDN, XXXXXXX,
-        XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, DF(L_GAME),                 KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXXXXXX, XXXXXXX,
+        XXXXXXX, KC_LSFT,    XXXXXXX, XXXXXXX, XXXXXXX, DF(L_GAME),                 KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_RSFT, XXXXXXX,
         XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
                                             _______, _______, KC_SPC,      _______, _______, _______
     )
