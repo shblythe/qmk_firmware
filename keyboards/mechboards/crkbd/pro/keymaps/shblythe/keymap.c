@@ -121,30 +121,31 @@ bool oled_task_user(void) {
     oled_clear();
     oled_set_cursor(0, 0);
     // Host Keyboard Layer Status
-    oled_write_P(PSTR("Layer"), false);
+    oled_write_P(PSTR("L:"), false);
 
     switch (get_highest_layer(layer_state)) {
         case L_BASE:
-            oled_write_P(PSTR("Deflt"), false);
-            break;
-        case L_GAME:
-            oled_write_P(PSTR("Game\n"), false);
+            switch (get_highest_layer(default_layer_state)) {
+                case L_BASE:
+                    oled_write_P(PSTR("Def"), false);
+                    break;
+                case L_GAME:
+                    oled_write_P(PSTR("Gam"), false);
+                    break;
+            }
             break;
         case L_NUM:
-            oled_write_P(PSTR("Num\n"), false);
-            break;
         case L_SYM:
-            oled_write_P(PSTR("Symb\n"), false);
+            oled_write_P(PSTR("Num"), false);
             break;
         case L_TAB:
-            oled_write_P(PSTR("Tab\n"), false);
+            oled_write_P(PSTR("Tab"), false);
             break;
         case L_RGB:
-            oled_write_P(PSTR("RGB\n"), false);
+            oled_write_P(PSTR("RGB"), false);
             break;
         default:
-            // Or use the write_ln shortcut over adding '\n' to the end of your string
-            oled_write_ln_P(PSTR("Undefined"), false);
+            oled_write_P(PSTR("???"), false);
     }
     oled_write_P(PSTR("\n\n\n\n\n\n\n\n"), false);
     render_logo();
